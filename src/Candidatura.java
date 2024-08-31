@@ -9,20 +9,16 @@ public class Candidatura {
 	}
 
 	public boolean cadastraCandidato(Candidato c) {
-		if (candidato.contains(c)) {
-			return false;
-		}
-		else if (candidato.contains(c.getNumero())){
-			if(candidato.contains(c.getMunicipio())){
+		for (Candidato cand : candidato) {
+			if (cand.getNumero() == c.getNumero() && cand.getMunicipio().equals(c.getMunicipio())) {
 				return false;
 			}
-			return candidato.add(c);
 		}
-		else return candidato.add(c);
+		return candidato.add(c);
 	}
 
 	public boolean isPrefeito(int numero){
-		if(numero>10&&numero<99){
+		if(numero>=10&&numero<=99){
 			return true;
 		}
 		return false;

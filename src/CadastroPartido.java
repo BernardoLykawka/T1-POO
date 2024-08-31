@@ -18,23 +18,21 @@ public class CadastroPartido {
 	}
 
 	public Partido consultaPartido(String nome) {
-		if(partido.contains(nome)) {
-			for(Partido p : partido) {
-				if(p.getNome().equals(nome)) {
-					return p;
-				}
+
+		for(Partido p : partido) {
+			if(p.getNome().equals(nome)) {
+				return p;
 			}
 		}
+
 		return null;
 	}
 
 	public Partido consultaPartido(int numero) {
 
-		if(partido.contains(numero)) {
-			for(Partido p : partido) {
-				if(p.getNumero() == numero) {
-					return p;
-				}
+		for(Partido p : partido) {
+			if(p.getNumero() == numero) {
+				return p;
 			}
 		}
 		return null;

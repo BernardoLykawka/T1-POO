@@ -22,13 +22,10 @@ public class ACMEVoting {
 
 	public void executar() {
 		redirecionaEntrada();
-		//redirecionaSaida();
+		redirecionaSaida();
 
 		cadastrarPartido();
 		cadastrarCandidatos();
-
-
-
 
 	}
 
@@ -86,6 +83,9 @@ public class ACMEVoting {
 			partido.adicionaCandidato(c1);
 			if (!candidatura.cadastraCandidato(c1)) {
 				System.out.println("2: ERRO: Já existe uma candidatura com esse número nesse município!");
+			}
+			else{
+				candidatura.toString(c1);
 			}
 		}
 	}
