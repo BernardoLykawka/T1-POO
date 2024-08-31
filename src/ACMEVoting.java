@@ -12,8 +12,8 @@ public class ACMEVoting {
 	private CadastroPartido cadastroPartido;
 	private Scanner input = new Scanner(System.in);
 	private PrintStream saidaPadrao = System.out;
-	private final String nomeArquivoEntrada = "entrada.txt";
-	private final String nomeArquivoSaida = "saida.txt";
+	private final String nomeArquivoEntrada = "input.txt";
+	private final String nomeArquivoSaida = "output.txt";
 
 	public ACMEVoting() {
 		candidatura = new Candidatura();
@@ -22,18 +22,82 @@ public class ACMEVoting {
 
 	public void executar() {
 		redirecionaEntrada();
-		redirecionaSaida();
+		//redirecionaSaida();
 
-		String nomeP= input.nextLine();
-		int numP = input.nextInt();
- 		//arraylist candidatos
-		Partido p1 = new Partido(numP, nomeP, );
-		cadastroPartido.cadastraPartido(p1);
+		cadastrarPartido();
+		cadastrarCandidatos();
 
 
 
 
 	}
+
+	public void cadastrarPartido() {
+
+		while(true) {
+			int numero = input.nextInt();
+			if(numero == -1){
+				break;
+			}
+			input.nextLine();
+			String nome = input.nextLine();
+			if (numero > 99 || numero <= 10) {
+				System.out.println("1: Erro: Um partido deve ter 2 numeros!");
+			} else {
+				Partido p1 = new Partido(numero, nome);
+				if (!cadastroPartido.cadastraPartido(p1)) {
+					System.out.println("1: Erro: Já existe um partido com este número.");
+				} else {
+					cadastroPartido.toString(p1);
+				}
+			}
+		}
+	}
+
+	public void cadastrarCandidatos() {
+		while (true) {
+			int numero = input.nextInt();
+			if (numero == -1) {
+				break;
+			}
+			input.nextLine();
+			String nome = input.nextLine();
+			String municipio = input.nextLine();
+
+			Candidato c1 = new Candidato(numero, nome, municipio);
+			Partido partido;
+
+			if (candidatura.isPrefeito(numero)) {
+				partido = cadastroPartido.consultaPartido(numero);
+			} else if (numero > 10000 && numero < 99999) {
+				int numeroPartido = numero / 10000;
+				partido = cadastroPartido.consultaPartido(numeroPartido);
+
+			} else {
+				System.out.println("2: ERRO: Número de candidato fora dos limites");
+				continue;
+			}
+
+			if (partido == null) {
+				System.out.println("2: Erro: Partido não encontrado.");
+				continue;
+			}
+
+			partido.adicionaCandidato(c1);
+			if (!candidatura.cadastraCandidato(c1)) {
+				System.out.println("2: ERRO: Já existe uma candidatura com esse número nesse município!");
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
 	private void redirecionaEntrada() {
 		try {
 			BufferedReader streamEntrada = new BufferedReader(new FileReader(nomeArquivoEntrada));

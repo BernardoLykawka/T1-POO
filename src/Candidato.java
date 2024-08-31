@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Candidato {
 
 	private int numero;
@@ -6,10 +8,34 @@ public class Candidato {
 	private int votos;
 	private Partido partido;
 
-	public Candidato(int numero, String nome, String municipio, int votos) {
+	public Candidato(int numero, String nome, String municipio) {
 		this.numero = numero;
 		this.nome = nome;
 		this.municipio = municipio;
-		this.votos = votos;
+	}
+
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public String getMunicipio(){
+		return municipio;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public int getVotos() {
+		return votos;
+	}
+
+	Partido getPartido() {
+		return partido;
+	}
+
+	public void setPartido(Partido partido){
+		this.partido=partido;
 	}
 }
