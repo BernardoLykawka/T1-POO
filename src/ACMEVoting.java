@@ -33,6 +33,7 @@ public class ACMEVoting {
 		mostrarPartidoMaisCandidatos(); //7
 		mostrarMaisVotados(); //8
 		maisVotosVereadores(); //9
+		municipioMaisVotos(); //10
 	}
 
 	public void cadastrarPartido() {
@@ -239,7 +240,32 @@ public class ACMEVoting {
 		else System.out.println("9:" + partidoMaisVotado.getNumero() + " " + partidoMaisVotado.getNome() + " " + maisVotos);
 	}
 
+	public void municipioMaisVotos() {
+		String municipioComMaisVotos = null;
+		int maisVotos = 0;
 
+		for (Candidato c : candidatura.getCandidato()) {
+			String municipio = c.getMunicipio();
+			int votosTotal = 0;
+
+			for (Candidato c2 : candidatura.getCandidato()) {
+				if (c2.getMunicipio().equals(municipio)) {
+					votosTotal += c2.getVotos();
+				}
+			}
+
+			if (votosTotal > maisVotos) {
+				maisVotos = votosTotal;
+				municipioComMaisVotos = municipio;
+			}
+		}
+
+		if (municipioComMaisVotos == null) {
+			System.out.println("10: Nenhum município com votos.");
+		} else {
+			System.out.println("10:" + municipioComMaisVotos + " " + maisVotos);
+		}
+	}
 
 
 	private void redirecionaEntrada() {

@@ -31,10 +31,6 @@ public class Candidato {
 		return votos;
 	}
 
-	Partido getPartido() {
-		return partido;
-	}
-
 	public void setPartido(Partido partido){
 		this.partido=partido;
 	}

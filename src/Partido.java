@@ -24,8 +24,4 @@ public class Partido {
 		candidatos.add(c);
 		c.setPartido(this);
 	}
-	public ArrayList<Candidato> getCandidatos() {
-		return candidatos;
-	}
-
 }

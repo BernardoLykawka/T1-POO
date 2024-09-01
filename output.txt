@@ -1,20 +1,18 @@
-1: 15- PartidoJ
-1: 10- PartidoK
-1: 20- PartidoL
-2: 15- CandidatoA- MunicipioX
-2: 15001- CandidatoB- MunicipioY
-2: 15002- CandidatoC- MunicipioZ
-2: 15003- CandidatoD- MunicipioW
-2: 10001- CandidatoE- MunicipioX
-3: 15- MunicipioX- Votos: 1000
-3: 15001- MunicipioY- Votos: 500
-3: 15002- MunicipioZ- Votos: 1500
-3: 15003- MunicipioW- Votos: 2000
-3: 10001- MunicipioX- Votos: 2500
-4: 15- PartidoJ
-5: 15003- CandidatoD- MunicipioW Votos: 2000
-6: PartidoJ 15- CandidatoA MunicipioX Votos: 1000
-7: 15 PartidoJ Candidatos: 4
-8:15,CandidatoA,MunicipioX,1000
-8:10001,CandidatoE,MunicipioX,2500
-9:15,PartidoJ,6500
+1: 12- PartidoA
+1: 10- PartidoB
+1: 21- PartidoC
+2: 12- CandidatoA- MunicipioX
+2: 10001- CandidatoB- MunicipioX
+2: 21- CandidatoC- MunicipioY
+2: 10002- CandidatoD- MunicipioY
+3: 12- MunicipioX- Votos: 500
+3: 21- MunicipioY- Votos: 300
+3: 10002- MunicipioY- Votos: 400
+4: 12- PartidoA
+5: 21- CandidatoC- MunicipioY Votos: 300
+6: Nenhum prefeito encontrado.
+7: 10 PartidoB Candidatos: 2
+8: 12 CandidatoA MunicipioX 500
+8: 10002 CandidatoD MunicipioY 400
+9:12 PartidoA 400
+10:MunicipioY 700
