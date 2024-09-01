@@ -46,4 +46,8 @@ public class Candidatura {
 		}
 		return null;
 	}
+
+	public ArrayList<Candidato> getCandidato() {
+		return candidato;
+	}
 }
