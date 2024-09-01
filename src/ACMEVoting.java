@@ -106,10 +106,12 @@ public class ACMEVoting {
 			if (numero == -1) {
 				break;
 			}
+			input.nextLine();
+			String municipio = input.nextLine();
 			int votos = input.nextInt();
 
-			if(candidatura.consultaCandidato(numero)!=null){
-				Candidato c= candidatura.consultaCandidato(numero);
+			if(candidatura.consultaCandidato(numero, municipio)!=null){
+				Candidato c= candidatura.consultaCandidato(numero,municipio);
 				c.setVotos(votos);
 				System.out.println("3: "+c.getNumero()+"- "+c.getMunicipio()+"- Votos: "+c.getVotos());
 			}
@@ -142,11 +144,11 @@ public class ACMEVoting {
 	public void mostrarDadosPrefeitos(){
 		String nome = input.nextLine();
 		Partido p = cadastroPartido.consultaPartido(nome);
-		int numero =p.getNumero();
-
 		if(p==null) {
 			System.out.println("6: Erro: Nenhum partido encontrado!");
+			return;
 		}
+		int numero =p.getNumero();
 		boolean prefeitoEncontrado = false;
 
 		Candidato c = candidatura.consultaCandidato(numero);
