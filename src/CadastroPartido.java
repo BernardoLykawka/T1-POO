@@ -9,7 +9,7 @@ public class CadastroPartido {
 	}
 
 	public boolean cadastraPartido(Partido p) {
-		if(consultaPartido(p.getNumero()) != null) {
+		if(consultaPartido(p.getNumero()) != null && consultaPartido(p.getNome()) != null) {
 			return false;
 		}
 		else partido.add(p);
@@ -37,9 +37,4 @@ public class CadastroPartido {
 		}
 		return null;
 	}
-
-	public void toString(Partido p){
-		System.out.println("1: "+p.getNumero()+"- "+p.getNome());
-	}
-
 }

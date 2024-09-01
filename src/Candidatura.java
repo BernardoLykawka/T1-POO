@@ -27,19 +27,23 @@ public class Candidatura {
 	public Candidato consultaCandidato(int numero) {
 
 		for(Candidato c : candidato) {
+
 			if(c.getNumero() == numero) {
+				if (c.getVotos() > 0) {
+					continue;
+				}
 				return c;
 			}
 		}
 		return null;
 	}
 
-
-	public void toString(Candidato c){
-		System.out.println("2: "+c.getNumero()+"- "+c.getNome()+"- "+c.getMunicipio());
-	}
-
-	public void toString(Candidato c, int votos){
-		System.out.println("3: "+c.getNumero()+"- "+c.getMunicipio()+"- Votos: "+c.getVotos());
+	public Candidato consultaCandidato(int numero, String municipio){
+		for(Candidato c : candidato) {
+			if(c.getNumero() == numero && c.getMunicipio().equals(municipio)) {
+				return c;
+			}
+		}
+		return null;
 	}
 }
