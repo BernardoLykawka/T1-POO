@@ -1,14 +1,20 @@
 1: 15- PartidoJ
-2: 15- CandidatoK- MunicipioA
-2: 15- CandidatoL- MunicipioB
-2: 15001- CandidatoM- MunicipioC
-2: 15002- CandidatoN- MunicipioD
-3: 15- MunicipioA- Votos: 1000
-3: 15- MunicipioB- Votos: 1500
-3: 15001- MunicipioC- Votos: 2000
-3: 15002- MunicipioD- Votos: 2500
+1: 10- PartidoK
+1: 20- PartidoL
+2: 15- CandidatoA- MunicipioX
+2: 15001- CandidatoB- MunicipioY
+2: 15002- CandidatoC- MunicipioZ
+2: 15003- CandidatoD- MunicipioW
+2: 10001- CandidatoE- MunicipioX
+3: 15- MunicipioX- Votos: 1000
+3: 15001- MunicipioY- Votos: 500
+3: 15002- MunicipioZ- Votos: 1500
+3: 15003- MunicipioW- Votos: 2000
+3: 10001- MunicipioX- Votos: 2500
 4: 15- PartidoJ
-5: ERRO: Nenhum candidato encontrado!
-6: PartidoJ 15- CandidatoK MunicipioA Votos: 1000
-6: PartidoJ 15- CandidatoL MunicipioB Votos: 1500
-7: 15 PartidoJ Candidatos: 2
+5: 15003- CandidatoD- MunicipioW Votos: 2000
+6: PartidoJ 15- CandidatoA MunicipioX Votos: 1000
+7: 15 PartidoJ Candidatos: 4
+8:15,CandidatoA,MunicipioX,1000
+8:10001,CandidatoE,MunicipioX,2500
+9:15,PartidoJ,6500

@@ -31,6 +31,8 @@ public class ACMEVoting {
 		mostrarDadosCandidatos(); //5
 		mostrarDadosPrefeitos(); //6
 		mostrarPartidoMaisCandidatos(); //7
+		mostrarMaisVotados(); //8
+		maisVotosVereadores(); //9
 	}
 
 	public void cadastrarPartido() {
@@ -170,7 +172,7 @@ public class ACMEVoting {
 
 			for (Candidato candidato : candidatura.getCandidato()) {
 				if (candidato.getNumero() == partido.getNumero() ||
-						(candidato.getNumero() / 100) == partido.getNumero()) {
+						(candidato.getNumero() / 1000) == partido.getNumero()) {
 					contadorCandidatos++;
 				}
 			}
@@ -188,8 +190,54 @@ public class ACMEVoting {
 		}
 	}
 
+	public void mostrarMaisVotados(){
+		Candidato vMaisVotado=null;
+		Candidato pMaisVotado=null;
 
+		for (Candidato c : candidatura.getCandidato()) {
+			if (candidatura.isPrefeito(c.getNumero())) {
+				if (pMaisVotado == null || c.getVotos() > pMaisVotado.getVotos()) {
+					pMaisVotado = c;
+				}
+			} else {
+				if (vMaisVotado == null || c.getVotos() > vMaisVotado.getVotos()) {
+					vMaisVotado = c;
+				}
+			}
+		}
+		if (pMaisVotado == null && vMaisVotado == null) {
+			System.out.println("8:Nenhum candidato encontrado.");
+		} else {
+			if (pMaisVotado != null) {
+				System.out.println("8: " + pMaisVotado.getNumero() + " " + pMaisVotado.getNome() + " " + pMaisVotado.getMunicipio() + " " + pMaisVotado.getVotos());
+			}
+			if (vMaisVotado != null) {
+				System.out.println("8: " + vMaisVotado.getNumero() + " " + vMaisVotado.getNome() + " " + vMaisVotado.getMunicipio() + " " + vMaisVotado.getVotos());
+			}
+		}
+	}
+	public void maisVotosVereadores(){
+		int maisVotos = 0;
+		Partido partidoMaisVotado = null;
 
+		for(Partido p:cadastroPartido.getPartido()) {
+			int totalVotos = 0;
+
+			for (Candidato c : candidatura.getCandidato()) {
+				if (!candidatura.isPrefeito(c.getNumero())) {
+					totalVotos+=c.getVotos();
+				}
+			}
+			if(totalVotos > maisVotos) {
+				maisVotos = totalVotos;
+				partidoMaisVotado = p;
+			}
+		}
+		if(partidoMaisVotado == null) {
+			System.out.println("9: Nenhum partido com vereadores votados.");
+		}
+		else System.out.println("9:" + partidoMaisVotado.getNumero() + " " + partidoMaisVotado.getNome() + " " + maisVotos);
+	}
 
 
 
@@ -229,3 +277,6 @@ public class ACMEVoting {
 		System.setOut(saidaPadrao);
 	}
 }
+
+
+
