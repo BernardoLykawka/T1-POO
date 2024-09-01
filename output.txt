@@ -1,5 +1,14 @@
-1: 90- PartidoI
-3: ERRO: O numero desse candidato nao foi encontrado!
-4: 90- PartidoI
+1: 15- PartidoJ
+2: 15- CandidatoK- MunicipioA
+2: 15- CandidatoL- MunicipioB
+2: 15001- CandidatoM- MunicipioC
+2: 15002- CandidatoN- MunicipioD
+3: 15- MunicipioA- Votos: 1000
+3: 15- MunicipioB- Votos: 1500
+3: 15001- MunicipioC- Votos: 2000
+3: 15002- MunicipioD- Votos: 2500
+4: 15- PartidoJ
 5: ERRO: Nenhum candidato encontrado!
-6: Nenhum prefeito encontrado.
+6: PartidoJ 15- CandidatoK MunicipioA Votos: 1000
+6: PartidoJ 15- CandidatoL MunicipioB Votos: 1500
+7: 15 PartidoJ Candidatos: 2

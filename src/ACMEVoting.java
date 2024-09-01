@@ -30,6 +30,7 @@ public class ACMEVoting {
 		mostrarDadosPartido();  //4
 		mostrarDadosCandidatos(); //5
 		mostrarDadosPrefeitos(); //6
+		mostrarPartidoMaisCandidatos(); //7
 	}
 
 	public void cadastrarPartido() {
@@ -158,6 +159,33 @@ public class ACMEVoting {
 			System.out.println("6: Nenhum prefeito encontrado.");
 		}
 
+	}
+
+	public void mostrarPartidoMaisCandidatos() {
+		Partido partidoComMaisCandidatos = null;
+		int maisCandidatos = 0;
+
+		for (Partido partido : cadastroPartido.getPartido()) {
+			int contadorCandidatos = 0;
+
+			for (Candidato candidato : candidatura.getCandidato()) {
+				if (candidato.getNumero() == partido.getNumero() ||
+						(candidato.getNumero() / 100) == partido.getNumero()) {
+					contadorCandidatos++;
+				}
+			}
+
+			if (contadorCandidatos > maisCandidatos) {
+				maisCandidatos = contadorCandidatos;
+				partidoComMaisCandidatos = partido;
+			}
+		}
+
+		if (partidoComMaisCandidatos == null || maisCandidatos == 0) {
+			System.out.println("7: Nenhum partido com candidatos.");
+		} else {
+			System.out.println("7: " + partidoComMaisCandidatos.getNumero() + " " + partidoComMaisCandidatos.getNome() + " Candidatos: " + maisCandidatos);
+		}
 	}
 
 
