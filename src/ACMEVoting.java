@@ -26,7 +26,7 @@ public class ACMEVoting {
 
 		cadastrarPartido();
 		cadastrarCandidatos();
-
+		cadastrarVotos();
 	}
 
 	public void cadastrarPartido() {
@@ -67,7 +67,7 @@ public class ACMEVoting {
 			if (candidatura.isPrefeito(numero)) {
 				partido = cadastroPartido.consultaPartido(numero);
 			} else if (numero > 10000 && numero < 99999) {
-				int numeroPartido = numero / 10000;
+				int numeroPartido = numero / 1000;
 				partido = cadastroPartido.consultaPartido(numeroPartido);
 
 			} else {
@@ -90,7 +90,23 @@ public class ACMEVoting {
 		}
 	}
 
+	public void cadastrarVotos(){
+		while (true) {
+			int numero = input.nextInt();
+			if (numero == -1) {
+				break;
+			}
+			int votos = input.nextInt();
 
+			if(candidatura.consultaCandidato(numero)!=null){
+				Candidato c= candidatura.consultaCandidato(numero);
+				c.setVotos(votos);
+				candidatura.toString(c,votos);
+			}
+			else System.out.println("3: ERRO: O numero desse candidato nao foi encontrado!");
+
+		}
+	}
 
 
 

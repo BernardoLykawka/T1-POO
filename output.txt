@@ -1,7 +1,12 @@
-1: 11 PTD
-1: 15 PCdoB
+1: 11- PTD
+1: 15- PCdoB
 1: Erro: Um partido deve ter 2 numeros!
-2: 11 Jose Torres
+2: 11- Jose- Torres
 2: ERRO: Número de candidato fora dos limites
 2: ERRO: Já existe uma candidatura com esse número nesse município!
 2: Erro: Partido não encontrado.
+2: 15254- Tolete- Porto
+3: 11- Torres- Votos: 12000
+3: 15254- Porto- Votos: 54
+3: ERRO: O numero desse candidato nao foi encontrado!
+3: ERRO: O numero desse candidato nao foi encontrado!

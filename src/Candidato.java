@@ -38,4 +38,8 @@ public class Candidato {
 	public void setPartido(Partido partido){
 		this.partido=partido;
 	}
+
+	public void setVotos(int votos){
+		this.votos=votos;
+	}
 }

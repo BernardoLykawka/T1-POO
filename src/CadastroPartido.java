@@ -39,7 +39,7 @@ public class CadastroPartido {
 	}
 
 	public void toString(Partido p){
-		System.out.println("1: "+p.getNumero()+" "+p.getNome());
+		System.out.println("1: "+p.getNumero()+"- "+p.getNome());
 	}
 
 }
