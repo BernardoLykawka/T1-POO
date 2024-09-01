@@ -24,9 +24,11 @@ public class ACMEVoting {
 		redirecionaEntrada();
 		redirecionaSaida();
 
-		cadastrarPartido();
-		cadastrarCandidatos();
-		cadastrarVotos();
+		cadastrarPartido(); //1
+		cadastrarCandidatos(); //2
+		cadastrarVotos();  //3
+		mostrarDadosPartido();  //4
+		mostrarDadosCandidatos(); //5
 	}
 
 	public void cadastrarPartido() {
@@ -38,14 +40,15 @@ public class ACMEVoting {
 			}
 			input.nextLine();
 			String nome = input.nextLine();
-			if (numero > 99 || numero <= 10) {
+			if (numero > 99 || numero < 10) {
 				System.out.println("1: Erro: Um partido deve ter 2 numeros!");
 			} else {
 				Partido p1 = new Partido(numero, nome);
 				if (!cadastroPartido.cadastraPartido(p1)) {
 					System.out.println("1: Erro: Já existe um partido com este número.");
-				} else {
-					cadastroPartido.toString(p1);
+				}
+				else {
+					System.out.println("1: "+p1.getNumero()+"- "+p1.getNome());
 				}
 			}
 		}
@@ -53,8 +56,9 @@ public class ACMEVoting {
 
 	public void cadastrarCandidatos() {
 		while (true) {
-			int numero = input.nextInt();
-			if (numero == -1) {
+			int numero;
+            numero = input.nextInt();
+            if (numero == -1) {
 				break;
 			}
 			input.nextLine();
@@ -78,6 +82,7 @@ public class ACMEVoting {
 			if (partido == null) {
 				System.out.println("2: Erro: Partido não encontrado.");
 				continue;
+
 			}
 
 			partido.adicionaCandidato(c1);
@@ -85,7 +90,7 @@ public class ACMEVoting {
 				System.out.println("2: ERRO: Já existe uma candidatura com esse número nesse município!");
 			}
 			else{
-				candidatura.toString(c1);
+				System.out.println("2: "+c1.getNumero()+"- "+c1.getNome()+"- "+c1.getMunicipio());
 			}
 		}
 	}
@@ -101,11 +106,32 @@ public class ACMEVoting {
 			if(candidatura.consultaCandidato(numero)!=null){
 				Candidato c= candidatura.consultaCandidato(numero);
 				c.setVotos(votos);
-				candidatura.toString(c,votos);
+				System.out.println("3: "+c.getNumero()+"- "+c.getMunicipio()+"- Votos: "+c.getVotos());
 			}
 			else System.out.println("3: ERRO: O numero desse candidato nao foi encontrado!");
-
 		}
+	}
+
+	public void mostrarDadosPartido(){
+		int numero = input.nextInt();
+
+		if(cadastroPartido.consultaPartido(numero)!=null){
+			Partido p = cadastroPartido.consultaPartido(numero);
+			System.out.println("4: "+p.getNumero()+"- "+p.getNome());
+		}
+		else System.out.println("4: ERRO: Nenhum partido encontrado!");
+	}
+
+	public void mostrarDadosCandidatos(){
+		int numero = input.nextInt();
+		input.nextLine();
+		String municipio = input.nextLine();
+
+		if(candidatura.consultaCandidato(numero,municipio)!=null) {
+			Candidato c = candidatura.consultaCandidato(numero,municipio);
+			System.out.println("5: "+c.getNumero()+"- "+c.getNome()+"- "+c.getMunicipio()+" Votos: "+c.getVotos());
+		}
+		else System.out.println("5: ERRO: Nenhum candidato encontrado!");
 	}
 
 
