@@ -53,7 +53,7 @@ public class ACMEVoting {
 					System.out.println("1: Erro: Já existe um partido com este número.");
 				}
 				else {
-					System.out.println("1: "+p1.getNumero()+"- "+p1.getNome());
+					System.out.println("1: " + p1.getNumero() + "- " + p1.getNome());
 				}
 			}
 		}
@@ -95,7 +95,7 @@ public class ACMEVoting {
 				System.out.println("2: ERRO: Já existe uma candidatura com esse número nesse município!");
 			}
 			else{
-				System.out.println("2: "+c1.getNumero()+"- "+c1.getNome()+"- "+c1.getMunicipio());
+				System.out.println("2: " + c1.getNumero() + "- " + c1.getNome() + "- " + c1.getMunicipio());
 			}
 		}
 	}
@@ -111,9 +111,9 @@ public class ACMEVoting {
 			int votos = input.nextInt();
 
 			if(candidatura.consultaCandidato(numero, municipio)!=null){
-				Candidato c= candidatura.consultaCandidato(numero,municipio);
+				Candidato c = candidatura.consultaCandidato(numero,municipio);
 				c.setVotos(votos);
-				System.out.println("3: "+c.getNumero()+"- "+c.getMunicipio()+"- Votos: "+c.getVotos());
+				System.out.println("3: " + c.getNumero() + "- "+c.getMunicipio() + "- Votos: " + c.getVotos());
 			}
 			else System.out.println("3: ERRO: O numero desse candidato nao foi encontrado!");
 		}
@@ -122,9 +122,9 @@ public class ACMEVoting {
 	public void mostrarDadosPartido(){
 		int numero = input.nextInt();
 
-		if(cadastroPartido.consultaPartido(numero)!=null){
+		if(cadastroPartido.consultaPartido(numero) != null){
 			Partido p = cadastroPartido.consultaPartido(numero);
-			System.out.println("4: "+p.getNumero()+"- "+p.getNome());
+			System.out.println("4: " + p.getNumero() + "- " + p.getNome());
 		}
 		else System.out.println("4: ERRO: Nenhum partido encontrado!");
 	}
@@ -136,7 +136,7 @@ public class ACMEVoting {
 
 		if(candidatura.consultaCandidato(numero,municipio)!=null) {
 			Candidato c = candidatura.consultaCandidato(numero,municipio);
-			System.out.println("5: "+c.getNumero()+"- "+c.getNome()+"- "+c.getMunicipio()+" Votos: "+c.getVotos());
+			System.out.println("5: "+c.getNumero() + "- " + c.getNome() + "- " + c.getMunicipio() + " Votos: " + c.getVotos());
 		}
 		else System.out.println("5: ERRO: Nenhum candidato encontrado!");
 	}
@@ -144,19 +144,19 @@ public class ACMEVoting {
 	public void mostrarDadosPrefeitos(){
 		String nome = input.nextLine();
 		Partido p = cadastroPartido.consultaPartido(nome);
-		if(p==null) {
+		if(p == null) {
 			System.out.println("6: Erro: Nenhum partido encontrado!");
 			return;
 		}
-		int numero =p.getNumero();
+		int numero = p.getNumero();
 		boolean prefeitoEncontrado = false;
 
 		Candidato c = candidatura.consultaCandidato(numero);
 		for (Candidato cand : candidatura.getCandidato()) {
-			if (cand.getNumero() == p.getNumero() || (cand.getNumero() / 100) == p.getNumero()) {
+			if (cand.getNumero() == p.getNumero() || (cand.getNumero() / 1000) == p.getNumero()) {
 				if (candidatura.isPrefeito(cand.getNumero())) {
 					System.out.println("6: " + p.getNome() + " " + cand.getNumero() + "- " + cand.getNome() + " " + cand.getMunicipio() + " Votos: " + cand.getVotos());
-					prefeitoEncontrado=true;
+					prefeitoEncontrado = true;
 				}
 			}
 		}
@@ -194,8 +194,8 @@ public class ACMEVoting {
 	}
 
 	public void mostrarMaisVotados(){
-		Candidato vMaisVotado=null;
-		Candidato pMaisVotado=null;
+		Candidato vMaisVotado = null;
+		Candidato pMaisVotado = null;
 
 		for (Candidato c : candidatura.getCandidato()) {
 			if (candidatura.isPrefeito(c.getNumero())) {

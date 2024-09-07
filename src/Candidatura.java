@@ -18,7 +18,7 @@ public class Candidatura {
 	}
 
 	public boolean isPrefeito(int numero){
-		if(numero>=10&&numero<=99){
+		if(numero >= 10 && numero <= 99){
 			return true;
 		}
 		return false;
